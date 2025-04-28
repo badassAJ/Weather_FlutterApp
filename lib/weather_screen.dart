@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 import 'package:intl/intl.dart';
 import 'package:weather_app/secrets.dart';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import './hourly_forecast_item.dart';
 import './additional_info_item.dart';
 import 'package:http/http.dart' as http;
@@ -18,12 +18,14 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
 
   late Future<Map<String,dynamic>> weather;
+  
 
   Future<Map<String,dynamic>> getCurrentWeather() async {
     try{
+      
       String cityname = 'London';
       final res= await http.get(
-      Uri.parse('https://api.openweathermap.org/data/2.5/forecast?q=$cityname,uk&APPID=$openWeatherAPIKey')
+      Uri.parse('https://api.openweathermap.org/data/2.5/forecast?q=$cityname,uk&APPID=${dotenv.env['API_KEY']}')
     );
     
     
