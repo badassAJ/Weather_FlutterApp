@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:intl/intl.dart';
-import 'package:weather_app/secrets.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import './hourly_forecast_item.dart';
 import './additional_info_item.dart';
